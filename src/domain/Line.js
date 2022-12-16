@@ -14,6 +14,10 @@ class Line {
   getName() {
     return this.#name;
   }
+
+  getRoute() {
+    return this.#route;
+  }
 }
 
 module.exports = Line;
