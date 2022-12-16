@@ -59,11 +59,49 @@ class App {
 
   executeMainFeature(command) {
     Validator.valdateMainCommand(command);
-    if (command === "1") console.log("123");
-    if (command === "2") console.log("23");
-    if (command === "3") console.log("3");
-    if (command === "4") console.log("12eqwe3");
+    if (command === "1") this.showStationFeature();
+    if (command === "2") console.log("미구현");
+    if (command === "3") console.log("미구현");
+    if (command === "4") console.log("미구현");
     if (command === "Q") this.end();
+  }
+
+  showStationFeature() {
+    OutputView.printStationFeature();
+    this.requestStationFeature();
+  }
+
+  requestStationFeature() {
+    InputView.readFeature((command) => {
+      this.handleError(this.executeStationFeature.bind(this, command), this.showStationFeature.bind(this));
+    });
+  }
+
+  executeStationFeature(command) {
+    Validator.validateStationCommand(command);
+    if (command === "1") this.requestRegisterStation();
+    if (command === "2") this.requestDeleteStation();
+    if (command === "B") this.showMainFeature();
+  }
+
+  requestRegisterStation() {
+    InputView.readRegisterStation((name) => {
+      this.handleError(() => {
+        this.#stationRepository.addStation(new Station(name));
+        OutputView.printRegisterStation();
+        this.showMainFeature();
+      }, this.showStationFeature.bind(this));
+    });
+  }
+
+  requestDeleteStation() {
+    InputView.readDeleteStation((name) => {
+      this.handleError(() => {
+        this.#stationRepository.deleteStation(name);
+        OutputView.printdeleteStation();
+        this.showMainFeature();
+      }, this.showStationFeature.bind(this));
+    });
   }
 
   end() {
