@@ -26,6 +26,10 @@ const OutputView = {
     MissionUtils.Console.print("\n## 노선 목록");
     lines.forEach((line) => MissionUtils.Console.print(`[INFO] ${line.getName()}`));
   },
+
+  printErrorMessage(error) {
+    MissionUtils.Console.print(error.message);
+  },
 };
 
 module.exports = OutputView;
