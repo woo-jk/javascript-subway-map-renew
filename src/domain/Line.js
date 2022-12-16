@@ -1,8 +1,10 @@
 class Line {
   #name;
+  #route;
 
-  constructor(name) {
+  constructor(name, upTerminal, downTerminal) {
     this.#name = name;
+    this.#route = [upTerminal, downTerminal];
   }
 
   getName() {
