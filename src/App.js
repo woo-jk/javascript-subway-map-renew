@@ -33,36 +33,43 @@ class App {
     initLines[1].addRoute("남부터미널역", 2);
     initLines[1].addRoute("양재역", 3);
     initLines[2].addRoute("양재역", 2);
-
     initLines.forEach((line) => this.#lineRepository.addLine(line));
   }
 
   initSetting() {
     this.#initStation();
     this.#initLine();
-    this.#lineRepository.getLines().forEach((line) => console.log(line.getRoute()));
   }
 
   play() {
+    this.showMainFeature();
+  }
+
+  showMainFeature() {
+    OutputView.printMainFeature();
     this.requestMainFeature();
   }
 
   requestMainFeature() {
-    InputView.readMainFeature((command) => {
-      if (!this.handleError(Validator.valdateMainCommand, command)) {
-        this.requestMainFeature();
-        return;
-      }
+    InputView.readFeature((command) => {
+      this.handleError(this.executeMainFeature.bind(this, command), this.requestMainFeature.bind(this));
     });
   }
 
-  handleError(validate, input) {
+  executeMainFeature(command) {
+    Validator.valdateMainCommand(command);
+    if (command === "1") console.log("123");
+    if (command === "2") console.log("23");
+    if (command === "3") console.log("3");
+    if (command === "4") console.log("12eqwe3");
+  }
+
+  handleError(callback, request) {
     try {
-      validate(input);
-      return true;
+      callback();
     } catch (error) {
       OutputView.printErrorMessage(error);
-      return false;
+      request();
     }
   }
 }
