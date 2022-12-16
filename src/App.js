@@ -81,6 +81,7 @@ class App {
     Validator.validateStationCommand(command);
     if (command === "1") this.requestRegisterStation();
     if (command === "2") this.requestDeleteStation();
+    if (command === "3") this.showStations();
     if (command === "B") this.showMainFeature();
   }
 
@@ -102,6 +103,11 @@ class App {
         this.showMainFeature();
       }, this.showStationFeature.bind(this));
     });
+  }
+
+  showStations() {
+    OutputView.printStations(this.#stationRepository.stations());
+    this.showMainFeature();
   }
 
   end() {
