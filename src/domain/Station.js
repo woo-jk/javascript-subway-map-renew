@@ -9,3 +9,5 @@ class Station {
     return this.#name;
   }
 }
+
+module.exports = Station;

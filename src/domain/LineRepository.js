@@ -13,3 +13,5 @@ class LineRepository {
     this.#lines = this.#lines.filter((line) => line.getName() !== name);
   }
 }
+
+module.exports = LineRepository;

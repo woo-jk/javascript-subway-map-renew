@@ -9,3 +9,5 @@ class Line {
     return this.#name;
   }
 }
+
+module.exports = Line;

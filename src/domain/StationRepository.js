@@ -21,3 +21,5 @@ class StationRepository {
     this.#stations = this.#stations.filter((station) => station.getName() !== name);
   }
 }
+
+module.exports = StationRepository;

@@ -3,6 +3,14 @@ const InputView = require("./view/InputView");
 const OutputView = require("./view/OutputView");
 
 class App {
+  #lineRepository;
+  #stationRepository;
+
+  constructor() {
+    this.#lineRepository = new LineRepository();
+    this.#stationRepository = new StationRepository();
+  }
+
   play() {
     this.requestMainFeature();
   }
