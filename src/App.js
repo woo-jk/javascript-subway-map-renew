@@ -3,7 +3,9 @@ const InputView = require("./view/InputView");
 const OutputView = require("./view/OutputView");
 
 class App {
-  play() {}
+  play() {
+    this.requestMainFeature();
+  }
 
   requestMainFeature() {
     InputView.readMainFeature((command) => {
