@@ -6,27 +6,27 @@ const InputView = {
   },
 
   readRegisterStation(callback) {
-    MissionUtils.Console.readLine("## 등록할 역 이름을 입력하세요", callback);
+    MissionUtils.Console.readLine("\n## 등록할 역 이름을 입력하세요\n", callback);
   },
 
   readDeleteStation(callback) {
-    MissionUtils.Console.readLine("## 삭제할 역 이름을 입력하세요", callback);
+    MissionUtils.Console.readLine("\n## 삭제할 역 이름을 입력하세요\n", callback);
   },
 
   readRegisterLine(callback) {
-    MissionUtils.Console.readLine("## 등록할 노선 이름을 입력하세요", callback);
+    MissionUtils.Console.readLine("\n## 등록할 노선 이름을 입력하세요\n", callback);
   },
 
   readUpStation(callback) {
-    MissionUtils.Console.readLine("## 등록할 노선의 상행 종점역 이름을 입력하세요.", callback);
+    MissionUtils.Console.readLine("\n## 등록할 노선의 상행 종점역 이름을 입력하세요.\n", callback);
   },
 
   readDownStation(callback) {
-    MissionUtils.Console.readLine("## 등록할 노선의 하행 종점역 이름을 입력하세요.", callback);
+    MissionUtils.Console.readLine("\n## 등록할 노선의 하행 종점역 이름을 입력하세요.\n", callback);
   },
 
   readDeleteLine(callback) {
-    MissionUtils.Console.readLine("## 삭제할 노선 이름을 입력하세요", callback);
+    MissionUtils.Console.readLine("\n## 삭제할 노선 이름을 입력하세요\n", callback);
   },
 };
 
