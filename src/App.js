@@ -1,3 +1,4 @@
+const MissionUtils = require("@woowacourse/mission-utils");
 const Line = require("./domain/Line");
 const LineRepository = require("./domain/LineRepository");
 const Station = require("./domain/Station");
@@ -62,6 +63,11 @@ class App {
     if (command === "2") console.log("23");
     if (command === "3") console.log("3");
     if (command === "4") console.log("12eqwe3");
+    if (command === "Q") this.end();
+  }
+
+  end() {
+    MissionUtils.Console.close();
   }
 
   handleError(callback, request) {
