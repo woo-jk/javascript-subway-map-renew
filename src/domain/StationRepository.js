@@ -14,6 +14,7 @@ class StationRepository {
   }
 
   addStation(station) {
+    if (this.isExistStation(station.getName())) throw new Error("[ERROR] 이미 등록된 역 이름입니다.");
     this.#stations.push(station);
   }
 
